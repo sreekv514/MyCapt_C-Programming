@@ -1,8 +1,8 @@
 #include<stdio.h>
 main()
 { // Program to swap 2 numbers without a temp variable.
-int a = 1, b = 3; // random assignment to check logic
-int swap = 1; // to swap or not swap according to user
+int a = 1, b = 3; 
+int swap = 1; // allows user to decide if or not to swap
 printf("Enter two space-separated numbers: ");
 scanf("%d", &a);
 scanf("%d", &b);
@@ -16,8 +16,8 @@ if (swap == 0)
 else
 {
   a = a + b; // a = 1+3 = 4
-  b = a - b; // b = 4-3 = 1 so b has original value of a
-  a = a - b; // a = 4-1 = 3 so a has original value of b
+  b = a - b; // b = 4-3 = 1 
+  a = a - b; // a = 4-1 = 3 
   printf("\nSwap successful. A:%d , B:%d \n", a, b);
 }
 return 0;
