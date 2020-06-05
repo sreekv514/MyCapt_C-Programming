@@ -1,7 +1,8 @@
 #include<stdio.h>
 int main()
 { //switch case statement for food menu
-    int num;
+    int num, counter, counter2;
+    char exit_but[1]; // to delay exit till user gives some input
     char YN1='y';
     printf("\tWelcome to C Surprises!\n");
     printf("\nCraving a snack? Let's order!'\n");
@@ -25,15 +26,24 @@ int main()
             printf("\nChoose a number between 1 and 10, and let us suggest something for you.\n");
             printf("Enter a number: ");
             scanf("%d", &num);
-         }
+        }
         else
-            {
+        {
             printf("\n You have chosen not to eat with us for now. We hope you come again!");
-            return 0;
-            }
+            printf("\n\nPress X to exit program. ");
+			scanf("%s",&exit_but);
+     		return 0;
+		}
+		
     }
+
     else
-        printf("\nIncorrect user input!");
+        {
+		printf("\nIncorrect user input!");
+		printf("\n\nPress X to exit program. ");
+		scanf("%s",&exit_but);
+		}
+	
 // menu service from here
     if (num>=1 && num<=10)
     {
@@ -97,5 +107,7 @@ int main()
     }
     else
         printf("\nIncorrect input. Program terminated.\n");
+    printf("\nPress X to exit program. ");
+	scanf("%s",&exit_but);
     return 0;
 }
