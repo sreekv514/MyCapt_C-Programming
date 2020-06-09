@@ -33,7 +33,7 @@ do
 								printf("\t");
 								for(j=0; j<=i; ++j) // number of characters in one line of triangle
 									{
-									printf("* "); // or printf("01");	
+									printf("* "); 	
 									}
 								printf("\n");
 								}
@@ -95,7 +95,7 @@ do
 								printf("\t");
 								for(j=0; j<=i; ++j) // number of characters in one line of triangle
 									{
-									printf("01"); // or printf("01");	
+									printf("01"); 	
 									}
 								printf("\n");
 								}
@@ -123,7 +123,7 @@ do
 											printf("  ");
 										}
 									k=0;
-									while(k!=(i*2)-1) // to print stars
+									while(k!=(i*2)-1) // to print pattern
 										{
 											if (i==1)
 											 {
