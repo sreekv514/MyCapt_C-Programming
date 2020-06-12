@@ -5,6 +5,7 @@ int main()
 {
 	// Initialize 3*3 matrix and pointer
 	int mat[3][3];
+	int *p;
 	int i=0, j=0; // loop variables
 	int sum=0;
 	// Insert input to 2d array
@@ -23,7 +24,7 @@ int main()
 	{
 		for(j=0; j<3; j++)
 		{
-			int *p = &mat[i][j]; // pointer
+			p = &mat[i][j]; // pointer
 			printf(" %d \t", *p);
 		}
 		printf("\n");
