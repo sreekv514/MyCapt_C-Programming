@@ -1,14 +1,12 @@
 #include<stdio.h>
 int main()
 { // program to print 3 different patterns with 2 different styles using loops, depending on user's choice 
-
 int i=0, j=0, k=0; // common loop variables for all patterns
 int row=1; // for user to input num of rows
 int ans; // to ask if user wants to exit program
 int cho_pat, cho_des;
 char exiter[1]; // to delay abrupt prgm exit
 printf("\tWelcome to pyramid builder!\n");
-
 do
 	{
 	printf("\nWhat PATTERN would you like to build?\n");
@@ -152,10 +150,8 @@ do
 	printf("\n\nWould you like to print another pattern? Press 1 for YES, or 0 for NO: ");
 	scanf("%d", &ans);
 	} while (ans==1);
-
 printf("\n\t Thank you! Hope you enjoyed it!\n");
 printf("\nPress X to exit the program.");
 scanf(" %c", &exiter);
-
 return 0;
 }
