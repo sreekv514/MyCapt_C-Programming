@@ -96,6 +96,7 @@ void input_details()
 void display_all()
 {
 	int i=0;
+	printf("\n %d record(s) present in file.\n", counter);
 	if (counter<1)
 	{
 		EMPTY;
@@ -118,6 +119,7 @@ void display_specific()
 {
 	ULL num=0, mob=0;
 	int option, i;
+	printf("\n %d record(s) present in file.\n", counter);
 	if (counter<1)
 	{
 		EMPTY;
@@ -192,14 +194,15 @@ void delete_specific()
 {
 	ULL num=0, mob=0;
 	int option, i, j;
+	printf("\n %d record(s) present in file.\n", counter);
 	if (counter<1)
 	{
 		EMPTY;
 	}
 	else if(counter == 1)
     {
-        strcpy(record[0].name, '\0');
-        strcpy(record[0].dept, '\0');
+        strcpy(record[0].name, " ");
+        strcpy(record[0].dept, " ");
         record[0].age = record[0].empno = 0;
         record[0].mobile = record[0].salary = 0;
         counter = 0;
