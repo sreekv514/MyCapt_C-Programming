@@ -1,7 +1,7 @@
-// Program to check if the number is prime or not
+// Program to check if the number is prime or not using recursion
 #include<stdio.h>
-int check_prime(int num);
-int num = 2;
+int check_prime(int num, int num2);
+int num;
 int main()
 {
 	printf("\tProgram to check whether the given number is a prime number.\n\n");
@@ -10,8 +10,9 @@ int main()
 	{
 	printf(" Enter the number: ");
 	scanf("%d", &num);
-	int test = check_prime(num);
-	if (test == 0)
+	int test, num2 = num/2;		// max divisible num for any num is its half
+	test = check_prime(num, num2);
+	if (test == 1)
 		printf("\n %d is a prime number.", num);
 	else
 		printf("\n %d is not a prime number.", num);
@@ -21,13 +22,16 @@ int main()
 	printf("\n");
 	return 0;
 }
-int check_prime(int num)
+int check_prime(int num, int num2)
 {
-	int i;
-	for(i=2; i<=num-1; i++)
+	if(num2==1)		// divisible for all nums, num2 acts as base condition
+		return 1;
+	
+	else
 	{
-		if(num%i == 0)
-			return 1;
+		if(num%num2 == 0)	// num is divisible by other numbers
+			return 0;	
+		else
+			return check_prime(num, --num2);	// recursive call;
 	}
-	return 0;
 }
