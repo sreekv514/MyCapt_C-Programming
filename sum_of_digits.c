@@ -1,22 +1,22 @@
 #include<stdio.h>
-// program to find sum of digits of a number
-int dsum = 0;
-int find_sum(int num);
-int main()
-{
-	int num = 0;
-	printf("Program to find the sum of the digits of a number.\n\n");
-	printf("Enter the number: ");
-	scanf("%d", &num);
-	printf("\nSum of digits of this number is %d.", find_sum(num));
-	return 0;
-}
-int find_sum(int num)
-{
-	while (num!=0)
-	{
-		dsum+=(num%10);
-		num=num/10;
-	}
-	return dsum;
-}
+//Program to fnd sum of digits of any number using a recursive function
+int num;
+int sum (int num);
+
+int main() 
+{ 
+    int ans;
+    printf("\n***Program to find the sum of digits of the number***\n");
+	printf("\n Enter the number: ");
+	scanf("%d", &num); 
+    ans = sum(num); 
+    printf("\n The sum of digits of %d is %d.\n", num, ans); 
+    return 0; 
+} 
+
+int sum(int num) 		// recursive function
+{ 
+	if (num==0)		// base block
+    	return 0;
+    return (num%10 + sum(num/10));	// recursive call
+} 
