@@ -1,3 +1,5 @@
+//Program to work with files: To reverse content, to copy content, to append content.
+
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -105,12 +107,12 @@ void createfile()
 	{
 		printf("\nEnter text to write in File1.txt (max %d characters): ", MAXSIZE);
 		scanf("%c", &dummy);
-		fgets(str1, MAXSIZE, stdin);
-		fprintf(fp1, "%s", str1);
+		fgets(str1, sizeof(str1), stdin);
+		fputs(str1, fp1);
 		
 		printf("\nEnter text to write in File2.txt (max %d characters): ", MAXSIZE);
-		fgets(str2, MAXSIZE, stdin);
-		fprintf(fp2, "%s", str2);
+		fgets(str2, sizeof(str2), stdin);
+		fputs(str2, fp2);
 		
 		printf("\n Successfully inserted text in files.\n");
 	}
@@ -127,6 +129,8 @@ void printfile()
 {
 	fp1 = fopen("File1.txt", "r");
 	fp2 = fopen("File2.txt", "r");
+	
+	char ch;
 	
 	if(fp1 == NULL && fp2 == NULL)
 	{
@@ -147,21 +151,21 @@ void printfile()
 	{
 		printf("\n Current content of file 1: ");
 		int i=0;
-		while(!feof(fp1))
+	while(!feof(fp1))
 		{
 			str1[i]=fgetc(fp1);
+			printf("%c", str1[i]);
 			++i;
 		}
-		puts(str1);
 		
 		printf("\n Current content of file 2: ");
 		i=0;
 		while(!feof(fp2))
 		{
 			str2[i]=fgetc(fp2);
+			printf("%c", str2[i]);
 			++i;
 		}
-		puts(str2);
 	}
 	
 	fclose(fp1);
@@ -170,13 +174,13 @@ void printfile()
 
 void reversefile()
 {
-	char temp[MAXSIZE];
-	int i=0, cho;
+	// char temp[MAXSIZE], ch;
+	int i=0, length, cho;
 	
 	printf("\n\n Which file's content would you like to reverse?\n 1. File1.txt\n 2. File2.txt\n");
 	printf("\t Enter your choice: ");
 	scanf("%d", &cho);
-						// PROBLEM HERE!!
+					
 	switch(cho)
 	{
 		case 1:
@@ -185,28 +189,32 @@ void reversefile()
 				if(fp1==NULL)
 				{
 					OPERR;
+					printf("\t Details: File does not exist to read data.\n");
+					return;
 				}
+				
 				i=0;
-				while(!feof(fp1));
+				while(!feof(fp1))		// not working from here 
 					{
-						temp[i]=fgetc(fp1);
+						str1[i]=fgetc(fp1); 
 						i++;
-					}
-				printf("\n\t CHECKER: "); puts(temp);
+					}				
 				fclose(fp1);
 				
 				fp1 = fopen("File1.txt", "w");
 				if(fp1==NULL)
 				{
 					OPERR;
+					return;
 				}
-				i = strlen(temp);
-				while (i>=0)
+				
+				length = strlen(str1);
+				
+				for(i=length-1; i>=0; i--)
 					{
-					fputc(temp[i], fp1);
-					--i;	
+					fputc(str1[i], fp1);	
 					}
-				printf("\n\t CHECKER: "); puts(temp);
+				
 				printf("\n Successfully reversed content in file. \n");
 				fclose(fp1);
 				
@@ -215,31 +223,36 @@ void reversefile()
 		case 2:
 			{
 				fp2 = fopen("File2.txt", "r");
-				if(fp1==NULL)
+				if(fp2==NULL)
 				{
 					OPERR;
+					printf("\t Details: File does not exist to read data.\n");
+					return;
 				}
+				
 				i=0;
-				while(!feof(fp2));
+				while(!feof(fp2))
 					{
-						temp[i]=fgetc(fp2);
+						str2[i]=fgetc(fp2);
 						i++;
 					}
-				printf("\n\t CHECKER: "); puts(temp);
+				
 				fclose(fp2);
 				
 				fp2 = fopen("File2.txt", "w");
 				if(fp1==NULL)
 				{
 					OPERR;
+					return;
 				}
-				i = strlen(temp);				
-				while (i>=0)
-				{
-					fputc(temp[i], fp2);
-					--i;	
-				}
-				printf("\n\t CHECKER: "); puts(temp);
+				
+				length = strlen(str2);
+								
+				for(i=length-1; i>=0; i--)
+					{
+					fputc(str2[i], fp2);	
+					}
+					
 				printf("\n Successfully reversed content in file. \n");
 				fclose(fp2);
 				
