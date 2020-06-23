@@ -29,10 +29,10 @@ int main()
 	do
 	{
 		printf("\n Functions available:\n");
-		printf(" 1. Create and write to new text files\n");
-		printf(" 2. View contents of files\n");
-		printf(" 3. Reverse content of file\n");
-		printf(" 4. Copy content to another file\n");
+		printf(" 1. Create 2 new text files\n");
+		printf(" 2. View contents of both files\n");
+		printf(" 3. Reverse content of any one file\n");
+		printf(" 4. Copy contents from one file to another\n");
 		printf(" 5. Exit program\n");
 		printf("\n\tEnter your choice: ");
 		scanf("%d", &choice);
@@ -58,6 +58,7 @@ int main()
 			case 5: {
 					printf("\n End of program. Press any key to exit.\n");
 					getch();
+					return 0;
 					break;
 					}
 			default: USERR;
@@ -91,7 +92,7 @@ void createfile()
 		return;
 	}
 	
-	printf("\n Successfully created 2 new files. Would you like to write text to the files? Y/N: ");
+	printf("\n Successfully created 2 new files. Would you like to add text to the files? (If no, default text will be written to file) Y/N: ");
 	scanf("%s", &cho);
 	
 	if(cho=='n' || cho=='N')
@@ -101,7 +102,7 @@ void createfile()
 		fputs(str1, fp1);
 		fputs(str2, fp2);		
 		
-		printf("\n Successfully inserted sample text in files.\n");
+		printf("\n Sample text has been added to the files.\n");
 	}
 	else if(cho =='y' || cho=='Y')
 	{
